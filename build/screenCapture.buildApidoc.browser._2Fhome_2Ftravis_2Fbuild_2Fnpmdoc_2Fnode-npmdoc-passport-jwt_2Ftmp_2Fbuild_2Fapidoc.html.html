@@ -1,0 +1,797 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/themikenicholson/passport-jwt">passport-jwt (v2.2.1)</a>
+</h1>
+<h4>Passport authentication strategy using JSON Web Tokens</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.passport-jwt">module passport-jwt</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-jwt.Strategy">
+            function <span class="apidocSignatureSpan">passport-jwt.</span>Strategy
+            <span class="apidocSignatureSpan">(options, verify)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-jwt.Strategy.super_">
+            function <span class="apidocSignatureSpan">passport-jwt.</span>Strategy.super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">passport-jwt.</span>ExtractJwt</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">passport-jwt.</span>Strategy.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">passport-jwt.</span>Strategy.super_.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">passport-jwt.</span>auth_header</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.passport-jwt.ExtractJwt">module passport-jwt.ExtractJwt</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-jwt.ExtractJwt.fromAuthHeader">
+            function <span class="apidocSignatureSpan">passport-jwt.ExtractJwt.</span>fromAuthHeader
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-jwt.ExtractJwt.fromAuthHeaderWithScheme">
+            function <span class="apidocSignatureSpan">passport-jwt.ExtractJwt.</span>fromAuthHeaderWithScheme
+            <span class="apidocSignatureSpan">(auth_scheme)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-jwt.ExtractJwt.fromBodyField">
+            function <span class="apidocSignatureSpan">passport-jwt.ExtractJwt.</span>fromBodyField
+            <span class="apidocSignatureSpan">(field_name)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-jwt.ExtractJwt.fromExtractors">
+            function <span class="apidocSignatureSpan">passport-jwt.ExtractJwt.</span>fromExtractors
+            <span class="apidocSignatureSpan">(extractors)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-jwt.ExtractJwt.fromHeader">
+            function <span class="apidocSignatureSpan">passport-jwt.ExtractJwt.</span>fromHeader
+            <span class="apidocSignatureSpan">(header_name)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-jwt.ExtractJwt.fromUrlQueryParameter">
+            function <span class="apidocSignatureSpan">passport-jwt.ExtractJwt.</span>fromUrlQueryParameter
+            <span class="apidocSignatureSpan">(param_name)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-jwt.ExtractJwt.versionOneCompatibility">
+            function <span class="apidocSignatureSpan">passport-jwt.ExtractJwt.</span>versionOneCompatibility
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.passport-jwt.Strategy">module passport-jwt.Strategy</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-jwt.Strategy.Strategy">
+            function <span class="apidocSignatureSpan">passport-jwt.</span>Strategy
+            <span class="apidocSignatureSpan">(options, verify)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-jwt.Strategy.JwtVerifier">
+            function <span class="apidocSignatureSpan">passport-jwt.Strategy.</span>JwtVerifier
+            <span class="apidocSignatureSpan">(token, secretOrKey, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-jwt.Strategy.super_">
+            function <span class="apidocSignatureSpan">passport-jwt.Strategy.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.passport-jwt.Strategy.prototype">module passport-jwt.Strategy.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-jwt.Strategy.prototype.authenticate">
+            function <span class="apidocSignatureSpan">passport-jwt.Strategy.prototype.</span>authenticate
+            <span class="apidocSignatureSpan">(req, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.passport-jwt.Strategy.super_">module passport-jwt.Strategy.super_</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-jwt.Strategy.super_.super_">
+            function <span class="apidocSignatureSpan">passport-jwt.Strategy.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-jwt.Strategy.super_.Strategy">
+            function <span class="apidocSignatureSpan">passport-jwt.Strategy.super_.</span>Strategy
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.passport-jwt.Strategy.super_.prototype">module passport-jwt.Strategy.super_.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-jwt.Strategy.super_.prototype.authenticate">
+            function <span class="apidocSignatureSpan">passport-jwt.Strategy.super_.prototype.</span>authenticate
+            <span class="apidocSignatureSpan">(req, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.passport-jwt.auth_header">module passport-jwt.auth_header</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-jwt.auth_header.parse">
+            function <span class="apidocSignatureSpan">passport-jwt.auth_header.</span>parse
+            <span class="apidocSignatureSpan">(hdrValue)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.passport-jwt" id="apidoc.module.passport-jwt">module passport-jwt</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.passport-jwt.Strategy" id="apidoc.element.passport-jwt.Strategy">
+        function <span class="apidocSignatureSpan">passport-jwt.</span>Strategy
+        <span class="apidocSignatureSpan">(options, verify)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function JwtStrategy(options, verify) {
+
+    passport.Strategy.call(this);
+    this.name = 'jwt';
+
+    this._secretOrKey = options.secretOrKey;
+    if (!this._secretOrKey) {
+        throw new TypeError('JwtStrategy requires a secret or key');
+    }
+
+    this._verify = verify;
+    if (!this._verify) {
+        throw new TypeError('JwtStrategy requires a verify callback');
+    }
+
+    this._jwtFromRequest = options.jwtFromRequest;
+    if (!this._jwtFromRequest) {
+        throw new TypeError('JwtStrategy requires a function to retrieve jwt from requests (see option jwtFromRequest)');
+    }
+
+    this._passReqToCallback = options.passReqToCallback;
+    this._verifOpts = {};
+
+    if (options.issuer) {
+        this._verifOpts.issuer = options.issuer;
+    }
+
+    if (options.audience) {
+        this._verifOpts.audience = options.audience;
+    }
+
+    if (options.algorithms) {
+        this._verifOpts.algorithms = options.algorithms;
+    }
+
+    if (options.ignoreExpiration != null) {
+        this._verifOpts.ignoreExpiration = options.ignoreExpiration;
+    }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.passport-jwt.Strategy.super_" id="apidoc.element.passport-jwt.Strategy.super_">
+        function <span class="apidocSignatureSpan">passport-jwt.</span>Strategy.super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Strategy() {
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.passport-jwt.ExtractJwt" id="apidoc.module.passport-jwt.ExtractJwt">module passport-jwt.ExtractJwt</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.passport-jwt.ExtractJwt.fromAuthHeader" id="apidoc.element.passport-jwt.ExtractJwt.fromAuthHeader">
+        function <span class="apidocSignatureSpan">passport-jwt.ExtractJwt.</span>fromAuthHeader
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fromAuthHeader = function () {
+    return extractors.fromAuthHeaderWithScheme(DEFAULT_AUTH_SCHEME);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+An example configuration which reads the JWT from the http
+Authorization header with the scheme 'JWT':
+
+```js
+var JwtStrategy = require('passport-jwt').Strategy,
+ExtractJwt = require('passport-jwt').ExtractJwt;
+var opts = {}
+opts.jwtFromRequest = ExtractJwt.<span class="apidocCodeKeywordSpan">fromAuthHeader</span>();
+opts.secretOrKey = 'secret';
+opts.issuer = "accounts.examplesoft.com";
+opts.audience = "yoursite.net";
+passport.use(new JwtStrategy(opts, function(jwt_payload, done) {
+User.findOne({id: jwt_payload.sub}, function(err, user) {
+    if (err) {
+        return done(err, false);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.passport-jwt.ExtractJwt.fromAuthHeaderWithScheme" id="apidoc.element.passport-jwt.ExtractJwt.fromAuthHeaderWithScheme">
+        function <span class="apidocSignatureSpan">passport-jwt.ExtractJwt.</span>fromAuthHeaderWithScheme
+        <span class="apidocSignatureSpan">(auth_scheme)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fromAuthHeaderWithScheme = function (auth_scheme) {
+    return function (request) {
+
+        var token = null;
+        if (request.headers[AUTH_HEADER]) {
+            var auth_params = auth_hdr.parse(request.headers[AUTH_HEADER]);
+            if (auth_params &amp;&amp; auth_scheme === auth_params.scheme) {
+                token = auth_params.value;
+            }
+        }
+        return token;
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.passport-jwt.ExtractJwt.fromBodyField" id="apidoc.element.passport-jwt.ExtractJwt.fromBodyField">
+        function <span class="apidocSignatureSpan">passport-jwt.ExtractJwt.</span>fromBodyField
+        <span class="apidocSignatureSpan">(field_name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fromBodyField = function (field_name) {
+    return function (request) {
+        var token = null;
+        if (request.body &amp;&amp; Object.prototype.hasOwnProperty.call(request.body, field_name)) {
+            token = request.body[field_name];
+        }
+        return token;
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.passport-jwt.ExtractJwt.fromExtractors" id="apidoc.element.passport-jwt.ExtractJwt.fromExtractors">
+        function <span class="apidocSignatureSpan">passport-jwt.ExtractJwt.</span>fromExtractors
+        <span class="apidocSignatureSpan">(extractors)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fromExtractors = function (extractors) {
+    if (!Array.isArray(extractors)) {
+        throw new TypeError('extractors.fromExtractors expects an array')
+    }
+
+    return function (request) {
+        var token = null;
+        var index = 0;
+        while(!token &amp;&amp; index &lt; extractors.length) {
+            token = extractors[index].call(this, request);
+            index ++;
+        }
+        return token;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.passport-jwt.ExtractJwt.fromHeader" id="apidoc.element.passport-jwt.ExtractJwt.fromHeader">
+        function <span class="apidocSignatureSpan">passport-jwt.ExtractJwt.</span>fromHeader
+        <span class="apidocSignatureSpan">(header_name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fromHeader = function (header_name) {
+    return function (request) {
+        var token = null;
+        if (request.headers[header_name]) {
+            token = request.headers[header_name];
+        }
+        return token;
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.passport-jwt.ExtractJwt.fromUrlQueryParameter" id="apidoc.element.passport-jwt.ExtractJwt.fromUrlQueryParameter">
+        function <span class="apidocSignatureSpan">passport-jwt.ExtractJwt.</span>fromUrlQueryParameter
+        <span class="apidocSignatureSpan">(param_name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fromUrlQueryParameter = function (param_name) {
+    return function (request) {
+        var token = null,
+            parsed_url = url.parse(request.url, true);
+        if (parsed_url.query &amp;&amp; Object.prototype.hasOwnProperty.call(parsed_url.query, param_name)) {
+            token = parsed_url.query[param_name];
+        }
+        return token;
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.passport-jwt.ExtractJwt.versionOneCompatibility" id="apidoc.element.passport-jwt.ExtractJwt.versionOneCompatibility">
+        function <span class="apidocSignatureSpan">passport-jwt.ExtractJwt.</span>versionOneCompatibility
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">versionOneCompatibility = function (options) {
+    var authScheme = options.authScheme || DEFAULT_AUTH_SCHEME,
+        bodyField = options.tokenBodyField || 'auth_token',
+        queryParam = options.tokenQueryParameterName || 'auth_token';
+
+    return function (request) {
+        var authHeaderExtractor = extractors.fromAuthHeaderWithScheme(authScheme);
+        var token =  authHeaderExtractor(request);
+
+        if (!token) {
+            var bodyExtractor = extractors.fromBodyField(bodyField);
+            token = bodyExtractor(request);
+        }
+
+        if (!token) {
+            var queryExtractor = extractors.fromUrlQueryParameter(queryParam);
+            token = queryExtractor(request);
+        }
+
+        return token;
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Identical behavior can be achieved under v2 with the versionOneCompatibility extractor:
+
+```js
+var JwtStrategy = require('passport-jwt').Strategy,
+    ExtractJwt = require('passport-jwt').ExtractJwt;
+var opts = {}
+opts.jwtFromRequest = ExtractJwt.<span class="apidocCodeKeywordSpan">versionOneCompatibility</span>({ tokenBodyField = "MY_CUSTOM_BODY_FIELD
+" });
+opts.opts.secretOrKey = 'secret';
+opts.issuer = "accounts.examplesoft.com";
+opts.audience = "yoursite.net";
+passport.use(new JwtStrategy(opts, verifyFunction));
+```
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.passport-jwt.Strategy" id="apidoc.module.passport-jwt.Strategy">module passport-jwt.Strategy</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.passport-jwt.Strategy.Strategy" id="apidoc.element.passport-jwt.Strategy.Strategy">
+        function <span class="apidocSignatureSpan">passport-jwt.</span>Strategy
+        <span class="apidocSignatureSpan">(options, verify)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function JwtStrategy(options, verify) {
+
+    passport.Strategy.call(this);
+    this.name = 'jwt';
+
+    this._secretOrKey = options.secretOrKey;
+    if (!this._secretOrKey) {
+        throw new TypeError('JwtStrategy requires a secret or key');
+    }
+
+    this._verify = verify;
+    if (!this._verify) {
+        throw new TypeError('JwtStrategy requires a verify callback');
+    }
+
+    this._jwtFromRequest = options.jwtFromRequest;
+    if (!this._jwtFromRequest) {
+        throw new TypeError('JwtStrategy requires a function to retrieve jwt from requests (see option jwtFromRequest)');
+    }
+
+    this._passReqToCallback = options.passReqToCallback;
+    this._verifOpts = {};
+
+    if (options.issuer) {
+        this._verifOpts.issuer = options.issuer;
+    }
+
+    if (options.audience) {
+        this._verifOpts.audience = options.audience;
+    }
+
+    if (options.algorithms) {
+        this._verifOpts.algorithms = options.algorithms;
+    }
+
+    if (options.ignoreExpiration != null) {
+        this._verifOpts.ignoreExpiration = options.ignoreExpiration;
+    }
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.passport-jwt.Strategy.JwtVerifier" id="apidoc.element.passport-jwt.Strategy.JwtVerifier">
+        function <span class="apidocSignatureSpan">passport-jwt.Strategy.</span>JwtVerifier
+        <span class="apidocSignatureSpan">(token, secretOrKey, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">JwtVerifier = function (token, secretOrKey, options, callback) {
+    return jwt.verify(token, secretOrKey, options, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.passport-jwt.Strategy.super_" id="apidoc.element.passport-jwt.Strategy.super_">
+        function <span class="apidocSignatureSpan">passport-jwt.Strategy.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Strategy() {
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.passport-jwt.Strategy.prototype" id="apidoc.module.passport-jwt.Strategy.prototype">module passport-jwt.Strategy.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.passport-jwt.Strategy.prototype.authenticate" id="apidoc.element.passport-jwt.Strategy.prototype.authenticate">
+        function <span class="apidocSignatureSpan">passport-jwt.Strategy.prototype.</span>authenticate
+        <span class="apidocSignatureSpan">(req, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">authenticate = function (req, options) {
+    var self = this;
+
+    var token = self._jwtFromRequest(req);
+
+    if (!token) {
+        return self.fail(new Error("No auth token"));
+    }
+
+    // Verify the JWT
+    JwtStrategy.JwtVerifier(token, this._secretOrKey, this._verifOpts, function(jwt_err, payload) {
+        if (jwt_err) {
+            return self.fail(jwt_err);
+        } else {
+            // Pass the parsed token to the user
+            var verified = function(err, user, info) {
+                if(err) {
+                    return self.error(err);
+                } else if (!user) {
+                    return self.fail(info);
+                } else {
+                    return self.success(user, info);
+                }
+            };
+
+            try {
+                if (self._passReqToCallback) {
+                    self._verify(req, payload, verified);
+                } else {
+                    self._verify(payload, verified);
+                }
+            } catch(ex) {
+                self.error(ex);
+            }
+        }
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    }
+    return token;
+};
+```
+
+### Authenticate requests
+
+Use `passport.<span class="apidocCodeKeywordSpan">authenticate</span>()` specifying `'JWT'` as the strategy.
+
+```js
+app.post('/profile', passport.authenticate('jwt', { session: false}),
+    function(req, res) {
+        res.send(req.user.profile);
+    }
+);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.passport-jwt.Strategy.super_" id="apidoc.module.passport-jwt.Strategy.super_">module passport-jwt.Strategy.super_</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.passport-jwt.Strategy.super_.super_" id="apidoc.element.passport-jwt.Strategy.super_.super_">
+        function <span class="apidocSignatureSpan">passport-jwt.Strategy.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Strategy() {
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.passport-jwt.Strategy.super_.Strategy" id="apidoc.element.passport-jwt.Strategy.super_.Strategy">
+        function <span class="apidocSignatureSpan">passport-jwt.Strategy.super_.</span>Strategy
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Strategy() {
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.passport-jwt.Strategy.super_.prototype" id="apidoc.module.passport-jwt.Strategy.super_.prototype">module passport-jwt.Strategy.super_.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.passport-jwt.Strategy.super_.prototype.authenticate" id="apidoc.element.passport-jwt.Strategy.super_.prototype.authenticate">
+        function <span class="apidocSignatureSpan">passport-jwt.Strategy.super_.prototype.</span>authenticate
+        <span class="apidocSignatureSpan">(req, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">authenticate = function (req, options) {
+  throw new Error('Strategy#authenticate must be overridden by subclass');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    }
+    return token;
+};
+```
+
+### Authenticate requests
+
+Use `passport.<span class="apidocCodeKeywordSpan">authenticate</span>()` specifying `'JWT'` as the strategy.
+
+```js
+app.post('/profile', passport.authenticate('jwt', { session: false}),
+    function(req, res) {
+        res.send(req.user.profile);
+    }
+);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.passport-jwt.auth_header" id="apidoc.module.passport-jwt.auth_header">module passport-jwt.auth_header</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.passport-jwt.auth_header.parse" id="apidoc.element.passport-jwt.auth_header.parse">
+        function <span class="apidocSignatureSpan">passport-jwt.auth_header.</span>parse
+        <span class="apidocSignatureSpan">(hdrValue)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function parseAuthHeader(hdrValue) {
+    if (typeof hdrValue !== 'string') {
+        return null;
+    }
+    var matches = hdrValue.match(re);
+    return matches &amp;&amp; { scheme: matches[1], value: matches[2] };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
