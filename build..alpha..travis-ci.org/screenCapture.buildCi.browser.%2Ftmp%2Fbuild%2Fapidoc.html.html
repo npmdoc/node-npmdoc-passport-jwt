@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/themikenicholson/passport-jwt"
-
-    >passport-jwt (v2.2.1)</a>
+    <a href="https://github.com/themikenicholson/passport-jwt">passport-jwt (v2.2.1)</a>
 </h1>
 <h4>Passport authentication strategy using JSON Web Tokens</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.passport-jwt">module passport-jwt</a><ol>
 
@@ -518,7 +511,7 @@
         var token = null;
         if (request.headers[AUTH_HEADER]) {
             var auth_params = auth_hdr.parse(request.headers[AUTH_HEADER]);
-            if (auth_params &#x26;&#x26; auth_scheme === auth_params.scheme) {
+            if (auth_params &amp;&amp; auth_scheme === auth_params.scheme) {
                 token = auth_params.value;
             }
         }
@@ -540,7 +533,7 @@
     <li>description and source-code<pre class="apidocCodePre">ExtractJwt.fromBodyField = function (field_name) {
     return function (request) {
         var token = null;
-        if (request.body &#x26;&#x26; Object.prototype.hasOwnProperty.call(request.body, field_name)) {
+        if (request.body &amp;&amp; Object.prototype.hasOwnProperty.call(request.body, field_name)) {
             token = request.body[field_name];
         }
         return token;
@@ -560,13 +553,13 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">ExtractJwt.fromExtractors = function (extractors) {
     if (!Array.isArray(extractors)) {
-        throw new TypeError(&#x27;extractors.fromExtractors expects an array&#x27;)
+        throw new TypeError('extractors.fromExtractors expects an array')
     }
 
     return function (request) {
         var token = null;
         var index = 0;
-        while(!token &#x26;&#x26; index &#x3c; extractors.length) {
+        while(!token &amp;&amp; index &lt; extractors.length) {
             token = extractors[index].call(this, request);
             index ++;
         }
@@ -610,7 +603,7 @@
     return function (request) {
         var token = null,
             parsed_url = url.parse(request.url, true);
-        if (parsed_url.query &#x26;&#x26; Object.prototype.hasOwnProperty.call(parsed_url.query, param_name)) {
+        if (parsed_url.query &amp;&amp; Object.prototype.hasOwnProperty.call(parsed_url.query, param_name)) {
             token = parsed_url.query[param_name];
         }
         return token;
@@ -630,8 +623,8 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">ExtractJwt.versionOneCompatibility = function (options) {
     var authScheme = options.authScheme || DEFAULT_AUTH_SCHEME,
-        bodyField = options.tokenBodyField || &#x27;auth_token&#x27;,
-        queryParam = options.tokenQueryParameterName || &#x27;auth_token&#x27;;
+        bodyField = options.tokenBodyField || 'auth_token',
+        queryParam = options.tokenQueryParameterName || 'auth_token';
 
     return function (request) {
         var authHeaderExtractor = extractors.fromAuthHeaderWithScheme(authScheme);
@@ -665,21 +658,21 @@
     <li>description and source-code<pre class="apidocCodePre">function JwtStrategy(options, verify) {
 
     passport.Strategy.call(this);
-    this.name = &#x27;jwt&#x27;;
+    this.name = 'jwt';
 
     this._secretOrKey = options.secretOrKey;
     if (!this._secretOrKey) {
-        throw new TypeError(&#x27;JwtStrategy requires a secret or key&#x27;);
+        throw new TypeError('JwtStrategy requires a secret or key');
     }
 
     this._verify = verify;
     if (!this._verify) {
-        throw new TypeError(&#x27;JwtStrategy requires a verify callback&#x27;);
+        throw new TypeError('JwtStrategy requires a verify callback');
     }
 
     this._jwtFromRequest = options.jwtFromRequest;
     if (!this._jwtFromRequest) {
-        throw new TypeError(&#x27;JwtStrategy requires a function to retrieve jwt from requests (see option jwtFromRequest)&#x27;);
+        throw new TypeError('JwtStrategy requires a function to retrieve jwt from requests (see option jwtFromRequest)');
     }
 
     this._passReqToCallback = options.passReqToCallback;
@@ -735,7 +728,7 @@
     var token = self._jwtFromRequest(req);
 
     if (!token) {
-        return self.fail(new Error(&#x22;No auth token&#x22;));
+        return self.fail(new Error("No auth token"));
     }
 
     // Verify the JWT
@@ -793,7 +786,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">Strategy.super_.prototype.authenticate = function (req, options) {
-  throw new Error(&#x27;Strategy#authenticate must be overridden by subclass&#x27;);
+  throw new Error('Strategy#authenticate must be overridden by subclass');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -825,16 +818,16 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 An example configuration which reads the JWT from the http
-Authorization header with the scheme &#x27;JWT&#x27;:
+Authorization header with the scheme 'JWT':
 
 ```js
-var JwtStrategy = require(&#x27;passport-jwt&#x27;).Strategy,
-ExtractJwt = require(&#x27;passport-jwt&#x27;).ExtractJwt;
+var JwtStrategy = require('passport-jwt').Strategy,
+ExtractJwt = require('passport-jwt').ExtractJwt;
 var opts = {}
 opts.jwtFromRequest = ExtractJwt.<span class="apidocCodeKeywordSpan">fromAuthHeader</span>();
-opts.secretOrKey = &#x27;secret&#x27;;
-opts.issuer = &#x22;accounts.examplesoft.com&#x22;;
-opts.audience = &#x22;yoursite.net&#x22;;
+opts.secretOrKey = 'secret';
+opts.issuer = "accounts.examplesoft.com";
+opts.audience = "yoursite.net";
 passport.use(new JwtStrategy(opts, function(jwt_payload, done) {
 User.findOne({id: jwt_payload.sub}, function(err, user) {
     if (err) {
@@ -857,7 +850,7 @@ User.findOne({id: jwt_payload.sub}, function(err, user) {
         var token = null;
         if (request.headers[AUTH_HEADER]) {
             var auth_params = auth_hdr.parse(request.headers[AUTH_HEADER]);
-            if (auth_params &#x26;&#x26; auth_scheme === auth_params.scheme) {
+            if (auth_params &amp;&amp; auth_scheme === auth_params.scheme) {
                 token = auth_params.value;
             }
         }
@@ -879,7 +872,7 @@ User.findOne({id: jwt_payload.sub}, function(err, user) {
     <li>description and source-code<pre class="apidocCodePre">fromBodyField = function (field_name) {
     return function (request) {
         var token = null;
-        if (request.body &#x26;&#x26; Object.prototype.hasOwnProperty.call(request.body, field_name)) {
+        if (request.body &amp;&amp; Object.prototype.hasOwnProperty.call(request.body, field_name)) {
             token = request.body[field_name];
         }
         return token;
@@ -899,13 +892,13 @@ User.findOne({id: jwt_payload.sub}, function(err, user) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">fromExtractors = function (extractors) {
     if (!Array.isArray(extractors)) {
-        throw new TypeError(&#x27;extractors.fromExtractors expects an array&#x27;)
+        throw new TypeError('extractors.fromExtractors expects an array')
     }
 
     return function (request) {
         var token = null;
         var index = 0;
-        while(!token &#x26;&#x26; index &#x3c; extractors.length) {
+        while(!token &amp;&amp; index &lt; extractors.length) {
             token = extractors[index].call(this, request);
             index ++;
         }
@@ -949,7 +942,7 @@ User.findOne({id: jwt_payload.sub}, function(err, user) {
     return function (request) {
         var token = null,
             parsed_url = url.parse(request.url, true);
-        if (parsed_url.query &#x26;&#x26; Object.prototype.hasOwnProperty.call(parsed_url.query, param_name)) {
+        if (parsed_url.query &amp;&amp; Object.prototype.hasOwnProperty.call(parsed_url.query, param_name)) {
             token = parsed_url.query[param_name];
         }
         return token;
@@ -969,8 +962,8 @@ User.findOne({id: jwt_payload.sub}, function(err, user) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">versionOneCompatibility = function (options) {
     var authScheme = options.authScheme || DEFAULT_AUTH_SCHEME,
-        bodyField = options.tokenBodyField || &#x27;auth_token&#x27;,
-        queryParam = options.tokenQueryParameterName || &#x27;auth_token&#x27;;
+        bodyField = options.tokenBodyField || 'auth_token',
+        queryParam = options.tokenQueryParameterName || 'auth_token';
 
     return function (request) {
         var authHeaderExtractor = extractors.fromAuthHeaderWithScheme(authScheme);
@@ -994,14 +987,14 @@ User.findOne({id: jwt_payload.sub}, function(err, user) {
 Identical behavior can be achieved under v2 with the versionOneCompatibility extractor:
 
 ```js
-var JwtStrategy = require(&#x27;passport-jwt&#x27;).Strategy,
-    ExtractJwt = require(&#x27;passport-jwt&#x27;).ExtractJwt;
+var JwtStrategy = require('passport-jwt').Strategy,
+    ExtractJwt = require('passport-jwt').ExtractJwt;
 var opts = {}
-opts.jwtFromRequest = ExtractJwt.<span class="apidocCodeKeywordSpan">versionOneCompatibility</span>({ tokenBodyField = &#x22;MY_CUSTOM_BODY_FIELD
-&#x22; });
-opts.opts.secretOrKey = &#x27;secret&#x27;;
-opts.issuer = &#x22;accounts.examplesoft.com&#x22;;
-opts.audience = &#x22;yoursite.net&#x22;;
+opts.jwtFromRequest = ExtractJwt.<span class="apidocCodeKeywordSpan">versionOneCompatibility</span>({ tokenBodyField = "MY_CUSTOM_BODY_FIELD
+" });
+opts.opts.secretOrKey = 'secret';
+opts.issuer = "accounts.examplesoft.com";
+opts.audience = "yoursite.net";
 passport.use(new JwtStrategy(opts, verifyFunction));
 ```
 ...</pre></li>
@@ -1026,16 +1019,16 @@ passport.use(new JwtStrategy(opts, verifyFunction));
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 An example configuration which reads the JWT from the http
-Authorization header with the scheme &#x27;JWT&#x27;:
+Authorization header with the scheme 'JWT':
 
 ```js
-var JwtStrategy = require(&#x27;passport-jwt&#x27;).Strategy,
-ExtractJwt = require(&#x27;passport-jwt&#x27;).ExtractJwt;
+var JwtStrategy = require('passport-jwt').Strategy,
+ExtractJwt = require('passport-jwt').ExtractJwt;
 var opts = {}
 opts.jwtFromRequest = ExtractJwt.<span class="apidocCodeKeywordSpan">fromAuthHeader</span>();
-opts.secretOrKey = &#x27;secret&#x27;;
-opts.issuer = &#x22;accounts.examplesoft.com&#x22;;
-opts.audience = &#x22;yoursite.net&#x22;;
+opts.secretOrKey = 'secret';
+opts.issuer = "accounts.examplesoft.com";
+opts.audience = "yoursite.net";
 passport.use(new JwtStrategy(opts, function(jwt_payload, done) {
 User.findOne({id: jwt_payload.sub}, function(err, user) {
     if (err) {
@@ -1063,7 +1056,7 @@ User.findOne({id: jwt_payload.sub}, function(err, user) {
         var token = null;
         if (request.headers[AUTH_HEADER]) {
             var auth_params = auth_hdr.parse(request.headers[AUTH_HEADER]);
-            if (auth_params &#x26;&#x26; auth_scheme === auth_params.scheme) {
+            if (auth_params &amp;&amp; auth_scheme === auth_params.scheme) {
                 token = auth_params.value;
             }
         }
@@ -1090,7 +1083,7 @@ User.findOne({id: jwt_payload.sub}, function(err, user) {
     <li>description and source-code<pre class="apidocCodePre">fromBodyField = function (field_name) {
     return function (request) {
         var token = null;
-        if (request.body &#x26;&#x26; Object.prototype.hasOwnProperty.call(request.body, field_name)) {
+        if (request.body &amp;&amp; Object.prototype.hasOwnProperty.call(request.body, field_name)) {
             token = request.body[field_name];
         }
         return token;
@@ -1115,13 +1108,13 @@ User.findOne({id: jwt_payload.sub}, function(err, user) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">fromExtractors = function (extractors) {
     if (!Array.isArray(extractors)) {
-        throw new TypeError(&#x27;extractors.fromExtractors expects an array&#x27;)
+        throw new TypeError('extractors.fromExtractors expects an array')
     }
 
     return function (request) {
         var token = null;
         var index = 0;
-        while(!token &#x26;&#x26; index &#x3c; extractors.length) {
+        while(!token &amp;&amp; index &lt; extractors.length) {
             token = extractors[index].call(this, request);
             index ++;
         }
@@ -1175,7 +1168,7 @@ User.findOne({id: jwt_payload.sub}, function(err, user) {
     return function (request) {
         var token = null,
             parsed_url = url.parse(request.url, true);
-        if (parsed_url.query &#x26;&#x26; Object.prototype.hasOwnProperty.call(parsed_url.query, param_name)) {
+        if (parsed_url.query &amp;&amp; Object.prototype.hasOwnProperty.call(parsed_url.query, param_name)) {
             token = parsed_url.query[param_name];
         }
         return token;
@@ -1200,8 +1193,8 @@ User.findOne({id: jwt_payload.sub}, function(err, user) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">versionOneCompatibility = function (options) {
     var authScheme = options.authScheme || DEFAULT_AUTH_SCHEME,
-        bodyField = options.tokenBodyField || &#x27;auth_token&#x27;,
-        queryParam = options.tokenQueryParameterName || &#x27;auth_token&#x27;;
+        bodyField = options.tokenBodyField || 'auth_token',
+        queryParam = options.tokenQueryParameterName || 'auth_token';
 
     return function (request) {
         var authHeaderExtractor = extractors.fromAuthHeaderWithScheme(authScheme);
@@ -1225,14 +1218,14 @@ User.findOne({id: jwt_payload.sub}, function(err, user) {
 Identical behavior can be achieved under v2 with the versionOneCompatibility extractor:
 
 ```js
-var JwtStrategy = require(&#x27;passport-jwt&#x27;).Strategy,
-    ExtractJwt = require(&#x27;passport-jwt&#x27;).ExtractJwt;
+var JwtStrategy = require('passport-jwt').Strategy,
+    ExtractJwt = require('passport-jwt').ExtractJwt;
 var opts = {}
-opts.jwtFromRequest = ExtractJwt.<span class="apidocCodeKeywordSpan">versionOneCompatibility</span>({ tokenBodyField = &#x22;MY_CUSTOM_BODY_FIELD
-&#x22; });
-opts.opts.secretOrKey = &#x27;secret&#x27;;
-opts.issuer = &#x22;accounts.examplesoft.com&#x22;;
-opts.audience = &#x22;yoursite.net&#x22;;
+opts.jwtFromRequest = ExtractJwt.<span class="apidocCodeKeywordSpan">versionOneCompatibility</span>({ tokenBodyField = "MY_CUSTOM_BODY_FIELD
+" });
+opts.opts.secretOrKey = 'secret';
+opts.issuer = "accounts.examplesoft.com";
+opts.audience = "yoursite.net";
 passport.use(new JwtStrategy(opts, verifyFunction));
 ```
 ...</pre></li>
@@ -1255,21 +1248,21 @@ passport.use(new JwtStrategy(opts, verifyFunction));
     <li>description and source-code<pre class="apidocCodePre">function JwtStrategy(options, verify) {
 
     passport.Strategy.call(this);
-    this.name = &#x27;jwt&#x27;;
+    this.name = 'jwt';
 
     this._secretOrKey = options.secretOrKey;
     if (!this._secretOrKey) {
-        throw new TypeError(&#x27;JwtStrategy requires a secret or key&#x27;);
+        throw new TypeError('JwtStrategy requires a secret or key');
     }
 
     this._verify = verify;
     if (!this._verify) {
-        throw new TypeError(&#x27;JwtStrategy requires a verify callback&#x27;);
+        throw new TypeError('JwtStrategy requires a verify callback');
     }
 
     this._jwtFromRequest = options.jwtFromRequest;
     if (!this._jwtFromRequest) {
-        throw new TypeError(&#x27;JwtStrategy requires a function to retrieve jwt from requests (see option jwtFromRequest)&#x27;);
+        throw new TypeError('JwtStrategy requires a function to retrieve jwt from requests (see option jwtFromRequest)');
     }
 
     this._passReqToCallback = options.passReqToCallback;
@@ -1364,7 +1357,7 @@ passport.use(new JwtStrategy(opts, verifyFunction));
     var token = self._jwtFromRequest(req);
 
     if (!token) {
-        return self.fail(new Error(&#x22;No auth token&#x22;));
+        return self.fail(new Error("No auth token"));
     }
 
     // Verify the JWT
@@ -1403,10 +1396,10 @@ passport.use(new JwtStrategy(opts, verifyFunction));
 
 ### Authenticate requests
 
-Use `passport.<span class="apidocCodeKeywordSpan">authenticate</span>()` specifying `&#x27;JWT&#x27;` as the strategy.
+Use `passport.<span class="apidocCodeKeywordSpan">authenticate</span>()` specifying `'JWT'` as the strategy.
 
 ```js
-app.post(&#x27;/profile&#x27;, passport.authenticate(&#x27;jwt&#x27;, { session: false}),
+app.post('/profile', passport.authenticate('jwt', { session: false}),
     function(req, res) {
         res.send(req.user.profile);
     }
@@ -1434,7 +1427,7 @@ app.post(&#x27;/profile&#x27;, passport.authenticate(&#x27;jwt&#x27;, { session:
     var token = self._jwtFromRequest(req);
 
     if (!token) {
-        return self.fail(new Error(&#x22;No auth token&#x22;));
+        return self.fail(new Error("No auth token"));
     }
 
     // Verify the JWT
@@ -1473,10 +1466,10 @@ app.post(&#x27;/profile&#x27;, passport.authenticate(&#x27;jwt&#x27;, { session:
 
 ### Authenticate requests
 
-Use `passport.<span class="apidocCodeKeywordSpan">authenticate</span>()` specifying `&#x27;JWT&#x27;` as the strategy.
+Use `passport.<span class="apidocCodeKeywordSpan">authenticate</span>()` specifying `'JWT'` as the strategy.
 
 ```js
-app.post(&#x27;/profile&#x27;, passport.authenticate(&#x27;jwt&#x27;, { session: false}),
+app.post('/profile', passport.authenticate('jwt', { session: false}),
     function(req, res) {
         res.send(req.user.profile);
     }
@@ -1532,7 +1525,7 @@ app.post(&#x27;/profile&#x27;, passport.authenticate(&#x27;jwt&#x27;, { session:
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">authenticate = function (req, options) {
-  throw new Error(&#x27;Strategy#authenticate must be overridden by subclass&#x27;);
+  throw new Error('Strategy#authenticate must be overridden by subclass');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
     }
@@ -1542,10 +1535,10 @@ app.post(&#x27;/profile&#x27;, passport.authenticate(&#x27;jwt&#x27;, { session:
 
 ### Authenticate requests
 
-Use `passport.<span class="apidocCodeKeywordSpan">authenticate</span>()` specifying `&#x27;JWT&#x27;` as the strategy.
+Use `passport.<span class="apidocCodeKeywordSpan">authenticate</span>()` specifying `'JWT'` as the strategy.
 
 ```js
-app.post(&#x27;/profile&#x27;, passport.authenticate(&#x27;jwt&#x27;, { session: false}),
+app.post('/profile', passport.authenticate('jwt', { session: false}),
     function(req, res) {
         res.send(req.user.profile);
     }
@@ -1568,7 +1561,7 @@ app.post(&#x27;/profile&#x27;, passport.authenticate(&#x27;jwt&#x27;, { session:
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">authenticate = function (req, options) {
-  throw new Error(&#x27;Strategy#authenticate must be overridden by subclass&#x27;);
+  throw new Error('Strategy#authenticate must be overridden by subclass');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
     }
@@ -1578,10 +1571,10 @@ app.post(&#x27;/profile&#x27;, passport.authenticate(&#x27;jwt&#x27;, { session:
 
 ### Authenticate requests
 
-Use `passport.<span class="apidocCodeKeywordSpan">authenticate</span>()` specifying `&#x27;JWT&#x27;` as the strategy.
+Use `passport.<span class="apidocCodeKeywordSpan">authenticate</span>()` specifying `'JWT'` as the strategy.
 
 ```js
-app.post(&#x27;/profile&#x27;, passport.authenticate(&#x27;jwt&#x27;, { session: false}),
+app.post('/profile', passport.authenticate('jwt', { session: false}),
     function(req, res) {
         res.send(req.user.profile);
     }
@@ -1604,11 +1597,11 @@ app.post(&#x27;/profile&#x27;, passport.authenticate(&#x27;jwt&#x27;, { session:
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function parseAuthHeader(hdrValue) {
-    if (typeof hdrValue !== &#x27;string&#x27;) {
+    if (typeof hdrValue !== 'string') {
         return null;
     }
     var matches = hdrValue.match(re);
-    return matches &#x26;&#x26; { scheme: matches[1], value: matches[2] };
+    return matches &amp;&amp; { scheme: matches[1], value: matches[2] };
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -1622,3 +1615,4 @@ app.post(&#x27;/profile&#x27;, passport.authenticate(&#x27;jwt&#x27;, { session:
     ]
 </div>
 </div>
+</body></html>
