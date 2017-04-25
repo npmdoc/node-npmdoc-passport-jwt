@@ -5,7 +5,7 @@
 <tspan x="10" y="42"></tspan>
 <tspan x="10" y="58">node_modules</tspan>
 <tspan x="10" y="74">└─┬ passport-jwt@2.2.1 </tspan>
-<tspan x="10" y="90">  ├─┬ jsonwebtoken@7.3.0 </tspan>
+<tspan x="10" y="90">  ├─┬ jsonwebtoken@7.4.0 </tspan>
 <tspan x="10" y="106">  │ ├─┬ joi@6.10.1 </tspan>
 <tspan x="10" y="122">  │ │ ├── hoek@2.16.3 </tspan>
 <tspan x="10" y="138">  │ │ ├── isemail@1.2.0 </tspan>
