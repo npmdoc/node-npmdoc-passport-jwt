@@ -1,4 +1,7 @@
-# api documentation for  [passport-jwt (v2.2.1)](https://github.com/themikenicholson/passport-jwt)  [![npm package](https://img.shields.io/npm/v/npmdoc-passport-jwt.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-passport-jwt) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-passport-jwt.svg)](https://travis-ci.org/npmdoc/node-npmdoc-passport-jwt)
+# npmdoc-passport-jwt
+
+#### basic api documentation for  [passport-jwt (v2.2.1)](https://github.com/themikenicholson/passport-jwt)  [![npm package](https://img.shields.io/npm/v/npmdoc-passport-jwt.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-passport-jwt) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-passport-jwt.svg)](https://travis-ci.org/npmdoc/node-npmdoc-passport-jwt)
+
 #### Passport authentication strategy using JSON Web Tokens
 
 [![NPM](https://nodei.co/npm/passport-jwt.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/passport-jwt)
@@ -68,7 +71,8 @@
         "test": "mocha --reporter spec --require test/bootstrap test/*test.js",
         "testcov": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter spec --require test/bootstrap test/*test.js"
     },
-    "version": "2.2.1"
+    "version": "2.2.1",
+    "bin": {}
 }
 ```
 
